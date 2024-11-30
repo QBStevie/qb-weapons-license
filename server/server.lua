@@ -69,3 +69,20 @@ RegisterNetEvent('custom-licenses:server:buyWeaponLicenseItem', function()
     TriggerClientEvent('QBCore:Notify', src, 'You have successfully purchased a weapons license item!', 'success')
     DebugPrint("[DEBUG] Weapons license item successfully purchased.")
 end)
+
+QBCore.Functions.CreateCallback('custom-licenses:server:checkLicenseMeta', function(source, cb)
+    local Player = QBCore.Functions.GetPlayer(source)
+    if not Player then
+        DebugPrint("[ERROR] Player not found for source ID: " .. source)
+        cb(false)
+        return
+    end
+    local licenses = Player.PlayerData.metadata["licences"] or {}
+    if licenses["weapon"] then
+        DebugPrint("[DEBUG] Player has metadata license.")
+        cb(true) -- Player has the metadata license
+    else
+        DebugPrint("[DEBUG] Player does not have metadata license.")
+        cb(false) -- Player does not have the metadata license
+    end
+end)
