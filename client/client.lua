@@ -1,4 +1,3 @@
-
 local QBCore = exports['qb-core']:GetCoreObject()
 local isInZone = false
 
@@ -6,6 +5,9 @@ local isInZone = false
 local function DebugPrint(msg)
     if Config.Debug then
         print("[DEBUG][Client]: " .. msg)
+        RegisterCommand('testmenu', function()
+            OpenLicenseMenu()
+        end)
     end
 end
 
@@ -78,5 +80,3 @@ function OpenLicenseMenu()
         }
     })
 end
-
-
