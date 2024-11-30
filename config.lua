@@ -2,7 +2,7 @@
 Config = {}
 
 -- Debug Mode
-Config.Debug = true -- Set to false in production
+Config.Debug = false -- Set to false in production
 
 -- Marker Configuration
 Config.MarkerLocation = vector3(156.5225, -915.8291, 30.1466) -- Replace with your desired location
